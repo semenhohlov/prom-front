@@ -1,12 +1,16 @@
-import { AppBar, Badge, IconButton, Toolbar, Typography } from "@mui/core"
-import { ShoppingBasket } from "@mui/icons-material"
+import {Provider} from 'react-redux';
+import store from './redux/store';
+
 import './App.css';
+import ButtonAppBar from './components/appbar/AppBar';
 
 function App() {
   return (
-    <div>
-      <h2>Hello!!!</h2>
-    </div>
+    <Provider store={store}>
+      <div>
+        <ButtonAppBar />
+      </div>
+    </Provider>
   );
 }
 
