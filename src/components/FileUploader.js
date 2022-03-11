@@ -6,10 +6,11 @@ import List from '@mui/material/List';
 import {useDispatch, useSelector} from 'react-redux';
 import {loadFileCats, selectFile} from '../redux/actions';
 import CatItem from './CatItem';
+import {makeCategories} from '../utils';
 
 function FileUploader() {
   const file = useRef(null);
-  const loaded = useSelector(state => state.fileCats);
+  const loaded = makeCategories(useSelector(state => state.fileCats));
   const supplier = useSelector(state => state.supplier);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
@@ -40,7 +41,7 @@ function FileUploader() {
           maxHeight: 380,
           overflow: 'auto'}}
         >
-          {loaded.map(item => (<CatItem key={item.id} item={item} clickhandler={selectFile}/>))}
+          {loaded.map(item => (<CatItem key={item.group_id} item={item} clickhandler={selectFile}/>))}
         </List> </>)
         :
       (<form>

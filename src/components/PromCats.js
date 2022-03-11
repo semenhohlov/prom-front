@@ -14,6 +14,7 @@ import {searchFilter} from '../utils';
 function PromCats() {
   const isLoading = useSelector(state => state.isLoading);
   const prom = useSelector(state => state.promCats);
+  const error = useSelector(state => state.error);
   const [cats, setCats] = useState([]);
   const dispatch = useDispatch();
   const [searchString, setSearchString] = useState('');
@@ -54,6 +55,7 @@ function PromCats() {
         <TextField label="Поиск" variant="standard" size="small"
         value={searchString} onChange={searchHandler}/>
       </Box>
+      {error && error}
       {isLoading ? <Skeleton width={600} height={380}/> : (
         <List sx={{ width: '100%',
           maxWidth: 600,
@@ -61,7 +63,7 @@ function PromCats() {
           maxHeight: 380,
           overflow: 'auto'}}
         >
-          {cats.map(item => (<CatItem key={item.id} item={item} clickhandler={selectProm} />))}
+          {cats.map(item => (<CatItem key={item.group_id} item={item} clickhandler={selectProm} />))}
         </List>)}
     </div>
   );
