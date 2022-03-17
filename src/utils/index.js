@@ -4,13 +4,22 @@ export function getSubCats(root, source, begin = '') {
   root.subCats = source.filter(item => {
     if (root.group_id && (root.group_id === item.group_parent_id))
       return item;
+    return null;
     });
+  // root.subCats = source.filter(item => (root.group_id && (
+  //   root.group_id === item.group_parent_id
+  // )));
   // console.log('SubCats: ', root.subCats.length);
   root.subCats.forEach(item => getSubCats(item, source, begin));
 }
 
 export function makeCategories(source) {
-  const result = source.filter(item => !item.group_parent_id);
+  const result = source.filter(item => {
+    if (!item.group_parent_id) {
+      return item;
+    }
+    return null;
+  });
   result.forEach((item) => getSubCats(item, source));
   return result;
 }

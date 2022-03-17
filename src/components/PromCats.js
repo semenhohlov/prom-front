@@ -63,7 +63,7 @@ function PromCats() {
           maxHeight: 380,
           overflow: 'auto'}}
         >
-          {cats.map(item => (<CatItem key={item.group_id} item={item} clickhandler={selectProm} />))}
+          {cats.map(item => (<CatItem key={item.group_id + item.group_name} item={item} clickhandler={selectProm} />))}
         </List>)}
     </div>
   );

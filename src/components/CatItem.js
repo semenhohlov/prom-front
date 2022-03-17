@@ -23,9 +23,9 @@ function CatItem({ item, clickhandler }) {
       <ListItemText primary={item.group_name}
       sx={{cursor: 'pointer',
       '&hover': {backgroundColor: 'grey'}}} />
-      {(item.subCats.length > 0) && (
+      {(item.subCats && (item.subCats.length > 0)) && (
         <List>
-          {item.subCats.map(i => (<CatItem key={i.group_id} item={i}
+          {item.subCats.map(i => (<CatItem key={i.group_id + i.group_name} item={i}
             clickhandler={clickhandler}/>))}
         </List>
       )}
