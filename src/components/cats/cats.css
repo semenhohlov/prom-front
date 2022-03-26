@@ -1,0 +1,96 @@
+.container {
+  box-sizing: border-box;
+}
+
+.row::after {
+  clear: both;
+  content: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.col-30 {
+  width: 30%;
+}
+.col-50 {
+  width: 50%;
+}
+.col-70 {
+  width: 70%;
+}
+
+.card {
+  margin: 5px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #aaa;
+}
+.save {
+  height: 70px;
+}
+
+.center {
+  text-align: center;
+}
+
+.overflow {
+  overflow-y: scroll;
+}
+.cats {
+  height: 320px;
+}
+.groups {
+  height: 350px;
+}
+
+input {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.prom_cats {
+  border: 1px solid #aaa;
+}
+.prom_cats th, td {
+  text-align: left;
+  padding: 2px;
+}
+
+.prom_cats th {
+  border: 1px solid #aaa;
+}
+.prom_cats td {
+  border: 1px solid #aaa;
+}
+.prom_cats tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.cat_item {
+  cursor: pointer;
+}
+.group_item {
+  cursor: pointer;
+  padding: 5px;
+  border-bottom: 1px solid #aaa;
+  position: relative;
+}
+.hint {
+  position: absolute;
+  display: none;
+  z-index: 1;
+  top: -25px;
+  left: 100px;
+  border: 1px solid black;
+  background-color: #ffaaaa;
+  padding: 5px;
+}
+.saved {
+  background-color: #aaffaa;
+}
+.saved:hover .hint {
+  display: block;
+}

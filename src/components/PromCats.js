@@ -8,7 +8,7 @@ import Chip from '@mui/material/Chip';
 import {useSelector, useDispatch} from 'react-redux';
 import {loadPromCats, selectProm} from '../redux/actions';
 import CatItem from './CatItem';
-import {searchFilter} from '../utils';
+import {searchFilter, makeCategories} from '../utils';
 
 
 function PromCats() {
@@ -21,11 +21,14 @@ function PromCats() {
   const [isFiltered, setIsFiltered] = useState(false);
 
   useEffect(() => {
+    if (prom.length) {
+      return;
+    }
     dispatch(loadPromCats());
-  }, [dispatch]);
+  });
 
   useEffect(() => {
-    setCats([...prom]);
+    setCats(makeCategories(prom));
   }, [prom]);
 
   function searchHandler(event) {

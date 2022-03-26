@@ -7,11 +7,14 @@ export const SELECT_PROM_CAT = 'SELECT_PROM_CAT';
 export const SELECT_FILE_CAT = 'SELECT_FILE_CAT';
 export const SET_ERROR = 'SET_ERROR';
 export const SAVE_ITEM = 'SAVE_ITEM';
+export const LOAD_PROM_CATEGORIES = 'LOAD_PROM_CATEGORIES';
+export const UPDATE_ITEM = 'UPDATE_ITEM';
 
 const initialState = {
   isLoading: true,
   supplier: '',
   promCats: [],
+  promCategories: [],
   fileCats: [],
   promCat: {},
   fileCat: {},
@@ -34,11 +37,25 @@ function rootReducer(state = initialState, action){
       return {...state, fileCat: {...action.payload}};
     case SET_ERROR:
       return {...state, error: action.payload};
+    case LOAD_PROM_CATEGORIES:
+        return {...state, promCategories: [...action.payload]};
     case SAVE_ITEM:
       return {...state, fileCats: [...state.fileCats.map(item => {
         if (item.group_id === action.payload.group_id) {
           item.group_prom_name = action.payload.group_prom_name;
           item.group_number = action.payload.group_number;
+        }
+        return item;
+      })]};
+    case UPDATE_ITEM:
+      return {...state, promCats: [...state.promCats.map(item => {
+        if (item.id === action.payload.id) {
+          item.prom_cat_1 = action.payload.prom_cat_1;
+          item.prom_cat_2 = action.payload.prom_cat_2;
+          item.prom_cat_3 = action.payload.prom_cat_3;
+          item.prom_cat_4 = action.payload.prom_cat_4;
+          item.prom_cat_adress = action.payload.prom_cat_adress;
+          item.prom_group_id = action.payload.prom_group_id;
         }
         return item;
       })]};

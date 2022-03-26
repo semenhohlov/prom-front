@@ -14,13 +14,16 @@ export function getSubCats(root, source, begin = '') {
 }
 
 export function makeCategories(source) {
-  const result = source.filter(item => {
+  const tmp = source.map(item => {
+    return {...item};
+  });
+  const result = tmp.filter(item => {
     if (!item.group_parent_id) {
       return item;
     }
     return null;
   });
-  result.forEach((item) => getSubCats(item, source));
+  result.forEach((item) => getSubCats(item, tmp));
   return result;
 }
 
