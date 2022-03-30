@@ -35,7 +35,7 @@ function PromCats() {
     const str = event.target.value
     setSearchString(str);
     if (str.length > 4) {
-      const filtered = prom.filter(item => searchFilter(item, str));
+      const filtered = cats.filter(item => searchFilter(item, str));
       setCats(filtered)
       setIsFiltered(true);
     }
