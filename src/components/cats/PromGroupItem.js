@@ -22,7 +22,7 @@ const PromGroupItem = ({ item, select }) => {
           {item.prom_cat_4}
         </div>
       </div>
-      {(item.subCats.length > 0) && (
+      {(item.subCats) && (item.subCats.length > 0) && (
         <ul>
         {item.subCats.map(i => {
           return <PromGroupItem key={i.id} item={i} select={select}/>

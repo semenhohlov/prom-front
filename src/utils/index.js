@@ -40,6 +40,31 @@ export function searchFilter(item, search){
   return false
 }
 
+export function searchFilterCats(item, search){
+  // console.log('searchFilter');
+  if (item.group_name.includes(search)) {
+    return true;
+  }
+  if (item.prom_cat_1 && (item.prom_cat_1.includes(search))) {
+    return true;
+  }
+  if (item.prom_cat_2 && (item.prom_cat_2.includes(search))) {
+    return true;
+  }
+  if (item.prom_cat_3 && (item.prom_cat_3.includes(search))) {
+    return true;
+  }
+  if (item.prom_cat_4 && (item.prom_cat_4.includes(search))) {
+    return true;
+  }
+  // for (let i = 0; i < item.subCats.length; i++) {
+  //   if (searchFilter(item.subCats[i], search)) {
+  //     return true;
+  //   }
+  // }
+  return false
+}
+
 export function sortCats() {
   return;
 }
