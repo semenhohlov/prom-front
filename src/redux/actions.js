@@ -87,6 +87,7 @@ export function loadFileCats(file){
   return async dispatch => {
     const form = new FormData();
     form.append('filename', file);
+    console.log(file);
     try {
       const response = await axios.post(API_URL, form);
       const supplier = response.data.supplier;
